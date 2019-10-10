@@ -45,6 +45,9 @@
     <Reference Include="SharpDX">
       <HintPath>..\..\..\..\Downloads\EnsoulSharp\System\SharpDX.dll</HintPath>
     </Reference>
+    <Reference Include="SharpDX.Direct3D9">
+      <HintPath>..\..\..\..\Downloads\EnsoulSharp\System\SharpDX.Direct3D9.dll</HintPath>
+    </Reference>
     <Reference Include="SPrediction">
       <HintPath>..\..\..\..\Downloads\EnsoulSharp\System\SPrediction.dll</HintPath>
     </Reference>

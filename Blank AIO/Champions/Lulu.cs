@@ -174,6 +174,11 @@ namespace BlankAIO.Champions
             }
         }
 
+        private static void JungleKS()
+        {
+            throw new NotImplementedException();
+        }
+
         static void ShootQ(bool useE = true)
         {
             if (!Q.IsReady())
