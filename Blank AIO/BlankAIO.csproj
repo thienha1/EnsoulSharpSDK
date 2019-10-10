@@ -64,7 +64,6 @@
   <ItemGroup>
     <Compile Include="Champions\Helpers\PixManager.cs" />
     <Compile Include="Champions\Leona.cs" />
-    <Compile Include="Champions\Lulu.cs" />
     <Compile Include="Champions\Pyke.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
