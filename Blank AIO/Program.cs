@@ -27,11 +27,7 @@ namespace BlankAIO
             try
             {
                 player = ObjectManager.Player;
-                if (player.CharacterName=="Lulu")
-                {
-                    Lulu.OnLoad();
-                }
-                else if (player.CharacterName=="Leona")
+                if (player.CharacterName=="Leona")
                 {
                     Leona.OnLoad();
                 }
