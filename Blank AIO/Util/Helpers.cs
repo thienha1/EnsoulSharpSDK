@@ -29,9 +29,43 @@ namespace BlankAIO.Util
             return new Vector3(positionMe.X + x, positionMe.Y + y, positionMe.Z);
         }
 
+        public static void UpdateCheck()
+        {
+            Task.Factory.StartNew(
+                () =>
+                {
+                    try
+                    {
+                        using (var c = new WebClient())
+                        {
+                            var rawVersion =
+                                c.DownloadString(
+                                    "https://raw.githubusercontent.com/h3h3/LeagueSharp/master/Support/Properties/AssemblyInfo.cs");
+                            var match =
+                                new Regex(
+                                    @"\[assembly\: AssemblyVersion\(""(\d{1,})\.(\d{1,})\.(\d{1,})\.(\d{1,})""\)\]")
+                                    .Match(rawVersion);
+
+                            if (match.Success)
+                            {
+                                var gitVersion =
+                                    new Version(
+                                        string.Format(
+                                            "{0}.{1}.{2}.{3}", match.Groups[1], match.Groups[2], match.Groups[3],
+                                            match.Groups[4]));  
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e);
+                    }
+                });
+        }
+
         public static void PrintMessage(string message)
         {
-            Chat.Print("<font color='#15C3AC'>Support:</font> <font color='#FFFFFF'>" + message + "</font>");
+            Chat.Print("<font color='#15C3AC'>BlankAIO:</font> <font color='#FFFFFF'>" + message + "</font>");
         }
 
         public static bool EnemyInRange(int numOfEnemy, float range)

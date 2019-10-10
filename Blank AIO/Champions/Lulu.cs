@@ -128,9 +128,6 @@ namespace BlankAIO.Champions
                 case OrbwalkerMode.Combo:
                     Combo();
                     break;
-
-                case OrbwalkerMode.LaneClear:
-                    break;
             }
 
             if (MainMenu["E Settings"]["autoeks"].GetValue<MenuBool>().Enabled && E.IsReady())
