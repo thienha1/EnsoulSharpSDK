@@ -27,11 +27,11 @@ namespace BlankAIO
             try
             {
                 player = ObjectManager.Player;
-                if (player.CharacterName=="Leona")
+                if (player.CharacterName == "Leona")
                 {
                     Leona.OnLoad();
                 }
-                else if (player.CharacterName=="Pyke")
+                else if (player.CharacterName == "Pyke")
                 {
                     Pyke.OnLoad();
                 }
