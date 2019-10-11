@@ -69,17 +69,6 @@ namespace BlankAIO.Champions
 
             #endregion
 
-            #region Jungle Farm Menu
-
-            var jungleclearMenu = new Menu("LaneClear", "Lane Clear Settings");
-
-            jungleclearMenu.Add(new MenuBool("jungleclearQ", "Use Q", true));
-            jungleclearMenu.Add(new MenuBool("jungleclearE", "Use E", true));
-
-            MainMenu.Add(jungleclearMenu);
-
-            #endregion
-
             #region Harass Menu
 
             var harassMenu = new Menu("Harass", "Harass Settings");
@@ -95,7 +84,7 @@ namespace BlankAIO.Champions
 
             var killstealMenu = new Menu("KillSteal", "KillSteal Settings");
 
-            killstealMenu.Add(new MenuBool("ksr", "Use R"));
+            killstealMenu.Add(new MenuBool("ksr", "Use R", true));
 
             MainMenu.Add(killstealMenu);
 
@@ -229,7 +218,7 @@ namespace BlankAIO.Champions
                 if (minions.Any())
                 {
                     var eFarmLocation = E.GetLineFarmLocation(minions);
-                    if (eFarmLocation.Position.IsValid() && eFarmLocation.MinionsHit >= MainMenu["Lane Clear Settings"]["eminions"].GetValue<MenuSlider>())
+                    if (eFarmLocation.Position.IsValid() && eFarmLocation.MinionsHit >= MainMenu["Lane Clear Settings"]["eminions"].GetValue<MenuSlider>().Value)
                     {
                         E.Cast(eFarmLocation.Position);
                     }
