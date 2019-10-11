@@ -1,44 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using EnsoulSharp;
 using EnsoulSharp.SDK;
-using EnsoulSharp.SDK.MenuUI;
-using SharpDX;
-using BlankAIO.Champions;
+using System;
+using Notification = EnsoulSharp.SDK.MenuUI.Notification;
+using Notifications = EnsoulSharp.SDK.MenuUI.Notifications;
 
 namespace BlankAIO
 {
     internal class Program
     {
-        public static AIHeroClient player;
-        public static string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        private static AIHeroClient Player => ObjectManager.Player;
 
         private static void Main(string[] args)
         {
-            GameEvent.OnGameLoad += OnGameLoad;
+            GameEvent.OnGameLoad += GameEventOnOnGameLoad;
         }
 
-        private static void OnGameLoad()
+        private static void GameEventOnOnGameLoad()
+
         {
-            try
+            var notify = new Notification("Blank.AIO",
+                "Blank.AIO Loaded. \n \n");
+            Notifications.Add(notify);
+            switch (Player.CharacterName)
             {
-                player = ObjectManager.Player;
-                if (player.CharacterName == "Leona")
-                {
-                    Leona.OnLoad();
-                }
-                else if (player.CharacterName == "Pyke")
-                {
-                    Pyke.OnLoad();
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine("Failed To load: " + e);
+                case "Leona":
+                    Flowers_Twitch.Program.TwitchMain();
+                    break;
+
+                case "Pyke":
+                    Mac_Alistar.Program.AlistarMain();
+                    break;
+
             }
         }
     }
