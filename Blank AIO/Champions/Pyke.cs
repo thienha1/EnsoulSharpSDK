@@ -101,7 +101,7 @@ namespace BlankAIO.Champions
             Game.OnTick += Game_OnUpdate;
         }
 
-        static void Game_OnUpdate(EventArgs args)
+        static void Game_OnUpdate()
         {
             if (MainMenu["KillSteal Settings"]["ksr"].GetValue<MenuBool>().Enabled && R.IsReady())
                 KillSteal();
